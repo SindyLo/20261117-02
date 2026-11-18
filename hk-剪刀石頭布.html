@@ -18,14 +18,14 @@
         <div class="mid">
             <div class="self">
                 <div class="self-text">你</div>
-                <div class="self-result">✊</div>
+                <div class="self-result"><span class="question">?</span></div>
             </div>
             <div class="computer">
                 <div class="computer-text">電腦</div>
-                <div class="computer-result">✊</div>
+                <div class="computer-result"><span class="question">?</span></div>
             </div>
         </div>
-        <!-- <div class="score">你贏了</div> -->
+        <div class="score">請選擇出拳</div>
         <div class="btm">
             <div class="btn-area">
                 <button type="button" class="scissors">✌️</button>
@@ -35,6 +35,45 @@
         </div>
         <div class="record"></div>
     </div>
+    <script>
+        let selfResult = document.querySelector('.self-result');
+        let computerResult = document.querySelector('.computer-result');
+        let score = document.querySelector('.score');
+        let scissorsButton = document.querySelector('.scissors');
+        let rockButton = document.querySelector('.rock');
+        let paperButton = document.querySelector('.paper');
+        let choices = ['✌️', '✊', '✋'];
+
+        function play(player) {
+            let randomNumber = Math.floor(Math.random() * 3);
+            let computer = choices[randomNumber];
+            selfResult.textContent = player;
+            computerResult.textContent = computer;
+            
+            if (player === computer) {
+                score.textContent = '平手！';
+            } else if ((player === '✌️' && computer === '✋') ||
+                (player === '✊' && computer === '✌️') ||
+                (player === '✋' && computer === '✊')) {
+                score.textContent = '你贏了！';
+            } else {
+                score.textContent = '你輸了！';
+            }
+        }
+
+        scissorsButton.onclick = function () {
+            play('✌️');
+        };
+
+        rockButton.onclick = function () {
+            play('✊');
+        };
+
+        paperButton.onclick = function () {
+            play('✋');
+        };
+
+    </script>
 </body>
 
 </html>

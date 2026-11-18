@@ -109,16 +109,6 @@ body {
         }
     }
 
-    /* .score {
-        background-color: red;
-        width: 100px;
-        height: 40px;
-        border-radius: 20px;
-        font-size: 18px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
 
     .btm {
         button {
@@ -130,3 +120,27 @@ body {
         }
     }
 }
+.question {
+    display: inline-block;
+    font-size: 72px;
+    font-weight: bold;
+    color: #fbbf24;
+    animation: question-rotate 2s linear infinite;
+}
+
+@keyframes question-rotate {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+.mid { margin-bottom: 12px; }
+
+.score {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    min-height: 40px;
+    margin-bottom: 20px;
+}
+
+.btm { margin-top: 5px; }
